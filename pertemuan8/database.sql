@@ -15,6 +15,7 @@ create table mahasiswa (
     id int primary key auto_increment,
     nama varchar(100),
     nrp varchar(10),
+    email varchar(100),
     jurusan varchar(100),
     gambar varchar(100)
 );
@@ -38,6 +39,8 @@ insert into mahasiswa value ('', 'Nilou', '23201020', 'nilou@gmail.com', 'Tari D
 insert into mahasiswa value ('', 'Melusine', '23201021', 'melusine@gmail.com', 'Sejarah', 'melusine.jpg');
 
 insert into mahasiswa value ('', 'Jeanne Alter', '23201022', 'jalter@gmail.com', 'Ilmu Hewan', 'jalter.png');
+
+insert into mahasiswa value ('', 'Castoria', '23201033', 'castor@gmail.com', 'Ilmu Sihir', 'castoria.jpg');
 
 --tampilin data
 select * from mahasiswa;
