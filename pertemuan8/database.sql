@@ -42,6 +42,19 @@ insert into mahasiswa value ('', 'Jeanne Alter', '23201022', 'jalter@gmail.com',
 
 insert into mahasiswa value ('', 'Castoria', '23201033', 'castor@gmail.com', 'Ilmu Sihir', 'castoria.jpg');
 
+
+-- 02/11/2023 - 17:53
+create table user (
+    id INT PRIMARY KEY auto_increment,
+    username VARCHAR(50),
+    password VARCHAR(255)
+);
+
+
+
+
+
+
 --tampilin data
 select * from mahasiswa;
 
