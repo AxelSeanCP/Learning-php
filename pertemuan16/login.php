@@ -1,4 +1,12 @@
 <?php 
+session_start(); //jalankan dulu sebelum semuanya
+
+// kalau sudah login arahkan ke index
+if (isset($_SESSION["login"])){
+    header("Location: index.php");
+    exit;
+}
+
 require 'functions.php';
 
 if (isset($_POST["login"])){
@@ -11,7 +19,11 @@ if (isset($_POST["login"])){
     if (mysqli_num_rows($result)) {
         // cek password
         $row = mysqli_fetch_assoc($result);
+        // kalau benar maka diarahkan ke index.php
         if (password_verify($password, $row['password'])){
+            // set session
+            $_SESSION["login"] = true;
+
             header("Location: index.php");
             exit;
         }
@@ -36,6 +48,12 @@ if (isset($_POST["login"])){
             font-size: 1rem;
             font-weight: 900;
             text-transform: uppercase;
+        }
+
+        a{
+            color: grey;
+            text-decoration: underline;
+            font-style: italic;
         }
     </style>
 </head>
@@ -64,6 +82,8 @@ if (isset($_POST["login"])){
         </ul>
 
     </form>
+
+    <a href="registrasi.php">tidak memiliki akun? daftar dulu disini</a>
 
 
 </body>
