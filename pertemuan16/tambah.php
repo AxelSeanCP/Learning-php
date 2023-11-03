@@ -1,4 +1,13 @@
 <?php 
+session_start();
+
+// kalau belum login maka tidak bisa masuk halaman ini
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+
 // koneksi ke dbms
 $conn = mysqli_connect("localhost", "root", "", "phpdasar");
 
