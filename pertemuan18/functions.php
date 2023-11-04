@@ -11,6 +11,25 @@ function query($query){
     return $rows;
 }
 
+function pagination($jumlahDataPerHalaman){
+    // konfigurasi
+    // jumlah halaman = total data / data per halaman
+    // round()-pembulatan desimal terdekat, floor()-pembulatan kebawah, ceil()-pembulatan keatas
+    $jumlahData = count(query("SELECT * FROM mahasiswa"));
+    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+    // kalau belum pindah halaman maka default 1
+    $halamanAktif = ( isset($_GET["halaman"]) ) ? $_GET["halaman"] : 1;
+    // halaman 2, awal = 5
+    // halaman 3, awal = 10
+    // rumus = 5 * 2 - 5
+    $awalData = ( $jumlahDataPerHalaman * $halamanAktif ) - $jumlahDataPerHalaman;
+
+    // limit 1,2 = menampilkan mulai dari index 1 sebanyak 2 data
+    $mahasiswa = query("SELECT * FROM mahasiswa LIMIT $awalData, $jumlahDataPerHalaman");
+
+    // return array assoc
+    return array('mahasiswa' => $mahasiswa, 'jumlahHalaman' => $jumlahHalaman, 'halamanAktif' => $halamanAktif);
+}
 
 function tambah($data){
     global $conn;
