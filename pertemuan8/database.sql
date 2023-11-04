@@ -51,7 +51,7 @@ create table user (
 );
 
 
-
+list mahasiswa : axel, meltryllis, izuna, silverwolf, okita, ichika, nagisa, nilou, melusine, jalter, castoria, wakamo, toki
 
 
 
