@@ -8,12 +8,7 @@ if (!isset($_SESSION["login"])) {
 }
 
 require 'functions.php';
-
-// pagination
-$dataPagination = pagination(5);
-$mahasiswa = $dataPagination["mahasiswa"];
-$jumlahHalaman = $dataPagination["jumlahHalaman"];
-$halamanAktif = $dataPagination["halamanAktif"]; //return string
+$mahasiswa = query("SELECT * FROM mahasiswa");
 
 //tombol cari di klik
 if(isset($_POST["cari"])){
@@ -27,30 +22,6 @@ if(isset($_POST["cari"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
-    <style>
-        .page{
-            display: inline-block;
-            font-size: 1.6rem;
-            border: 1px solid black;
-            text-decoration: none;
-            text-align: center;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            margin-right: 5px;
-            color: black;
-        }
-
-        a:hover{
-            background-color: yellow;
-        }
-
-        .current{
-            font-weight: bold;
-            background-color: yellow;
-            color: navy;
-        }
-    </style>
 </head>
 <body>
     
@@ -61,32 +32,11 @@ if(isset($_POST["cari"])){
     <a href="tambah.php">Tambah data mahasiswa</a>
     <br><br>
 
-    <!-- cari -->
     <form action="" method="post">
         <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off">
         <button type="submit" name="cari">Cari!</button>
     </form>
-    <br>
 
-    <!-- navigasi -->
-    <?php if($halamanAktif > 1) : ?>
-        <a href="?halaman=<?= $halamanAktif-1 ?>" class="page">&lt;</a>
-    <?php endif; ?>
-
-    <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-        <?php if($i == $halamanAktif) : ?>
-            <a href="?halaman=<?= $i; ?>" class="current page" > <?= $i ?> </a>
-        <?php else : ?>
-            <a href="?halaman=<?= $i; ?>" class="page" > <?= $i ?> </a>
-        <?php endif; ?>
-    <?php endfor; ?>
-    
-    <?php if($halamanAktif < $jumlahHalaman) : ?>
-        <a href="?halaman=<?= $halamanAktif+1 ?>" class="page">&gt;</a>
-    <?php endif; ?>
-    <!-- end navigasi -->
-
-    <br> <br>
     <table border="1" cellpadding="10" cellspacing="0">
         <tr>
             <th>No.</th>
@@ -115,24 +65,6 @@ if(isset($_POST["cari"])){
         <?php $ctr++; ?>
         <?php endforeach; ?>
     </table>
-    <br>
 
-    <!-- navigasi -->
-    <?php if($halamanAktif > 1) : ?>
-        <a href="?halaman=<?= $halamanAktif-1 ?>" class="page">&laquo;;</a>
-    <?php endif; ?>
-
-    <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-        <?php if($i == $halamanAktif) : ?>
-            <a href="?halaman=<?= $i; ?>" class="current page" > <?= $i ?> </a>
-        <?php else : ?>
-            <a href="?halaman=<?= $i; ?>" class="page" > <?= $i ?> </a>
-        <?php endif; ?>
-    <?php endfor; ?>
-    
-    <?php if($halamanAktif < $jumlahHalaman) : ?>
-        <a href="?halaman=<?= $halamanAktif+1 ?>" class="page">&raquo;;</a>
-    <?php endif; ?>
-    <!-- end navigasi -->
 </body>
 </html>
