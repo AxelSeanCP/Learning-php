@@ -22,6 +22,16 @@ if(isset($_POST["cari"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <style>
+        .loader{
+            width: 40px;
+            position: absolute;
+            top: 130px;
+            left: 330px;
+            z-index: -1;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     
@@ -34,8 +44,11 @@ if(isset($_POST["cari"])){
 
     <form action="" method="post">
         <input type="text" id="keyword" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off">
-        <button type="submit" name="cari" id="tombol-cari">Cari!</button>
+        <button type="submit" id="tombol-cari" name="cari">Cari!</button>
+
+        <img src="img/loader.gif" alt="" class="loader">
     </form>
+    <br>
 
     <div id="container">
         <table border="1" cellpadding="10" cellspacing="0">
@@ -68,6 +81,8 @@ if(isset($_POST["cari"])){
         </table>
     </div>
 
+    <!-- include jquery sebelum script kita -->
+    <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
