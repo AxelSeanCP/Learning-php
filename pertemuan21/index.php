@@ -31,18 +31,25 @@ if(isset($_POST["cari"])){
             z-index: -1;
             display: none;
         }
+
+        @media print {
+            /* p-hilang untuk menghilangkan ketika di print */
+            .p-hilang{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     
-    <a href="logout.php">LOGOUT</a>
+    <a href="logout.php" class="p-hilang">LOGOUT</a> | <a href="print.php" target="_blank">Print</a>
 
     <h1>Daftar Mahasiswa</h1>
 
-    <a href="tambah.php">Tambah data mahasiswa</a>
+    <a href="tambah.php" class="p-hilang">Tambah data mahasiswa</a>
     <br><br>
 
-    <form action="" method="post">
+    <form action="" method="post" class="p-hilang">
         <input type="text" id="keyword" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian.." autocomplete="off">
         <button type="submit" id="tombol-cari" name="cari">Cari!</button>
 
@@ -54,19 +61,19 @@ if(isset($_POST["cari"])){
         <table border="1" cellpadding="10" cellspacing="0">
             <tr>
                 <th>No.</th>
-                <th>Aksi</th>
+                <th class="p-hilang">Aksi</th>
                 <th>Gambar</th>
                 <th>Nrp</th>
-                <th>nama</th>
-                <th>email</th>
-                <th>jurusan</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Jurusan</th>
             </tr>
 
             <?php $ctr=1; ?>
             <?php foreach($mahasiswa as $row) : ?>
             <tr>
                 <td><?= $ctr; ?></td>
-                <td>
+                <td class="p-hilang">
                     <a href="ubah.php?id=<?= $row["id"]; ?>">ubah</a> |
                     <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('yakin?')">hapus</a>    
                 </td>

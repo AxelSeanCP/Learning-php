@@ -1,0 +1,22 @@
+untuk web hosting menggunakan infinity free, sedangkan untuk nama domain menggunakan freenom
+
+buat akun di infinity free lalu pilih custom domain jika memiliki nama domain sendiri jika tidak maka pilih subdomain
+setelah itu akan membuat akun lalu diberi password dan id, silahkan disimpan di tempat aman
+
+masuk ke control panel webnya lalu pilih online file manager, di file manager masuk ke folder htdocs
+
+kita tidak akan upload files di situ karena ribet jadi kembali ke control panel lalu pilih ftp accounts
+
+disitu diberi tahu id ftp dan passwordnya (sama seperti yang tadi)
+
+download filezilla untuk connect ke ftp
+
+buka filezilla lalu dibagian atas masukkan sesuai yang ada di ftp
+
+nanti muncul server file di kanan, tinggal pindah aja dari htdocs local ke htdocs server, pilih pertemuan 20 karena tidak ada pdf reporting jadi filenya tidak besar
+
+web hosting sudah berhasil tapi page tidak bisa dibuka (this page isn't working), webnya juga belum terconnect denggan database
+
+dengan halangan tsb, maka proses diberhentikan. untuk melanjutkan kunjungi link berikut
+
+https://youtu.be/7Sz-iHBcXHo?si=ez_4vzWo0C2o8zCE timestamp=25:00
