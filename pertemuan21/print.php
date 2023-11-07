@@ -45,4 +45,4 @@ $html .='</table>
 </html>';
 
 $mpdf->WriteHTML($html);
-$mpdf->Output('daftar-mahasiswa.pdf', \Mpdf\Output\Destination::INLINE);
+$mpdf->Output('daftar-mahasiswa.pdf', \Mpdf\Output\Destination::INLINE); //'I'
