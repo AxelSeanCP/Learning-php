@@ -17,6 +17,9 @@ if(!isset($_SESSION["login"])){
     <title>Paper Web</title>
 </head>
 <body>
+
+    <h1>Welcome, <?php echo $_SESSION["target"]["fullname"] ?>!</h1>
+
     
 </body>
 </html>
